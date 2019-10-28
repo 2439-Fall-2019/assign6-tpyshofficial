@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Boilerplate</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+
+</head>
+<body>
+<!-- Ted Pysh
+	index.html
+	info2439
+	Thoendel
+	9/8/19 
+	-->
+
+<div data-role="page" id="first">
+<div data-role="header">
+	<h1>First</h1>
+</div>
+<div role="main" class="ui-content">
+	<p>Swipe to navigate</p>
+</div>
+</div>
+
+<div data-role="page" id="second">
+<div data-role="header">
+<h1>Second</h1>
+</div>
+<div role="main" class="ui-content">
+	<p>Swipe to the right...</p>
+</div>
+</div>
+
+<script>
+$("body").bind("swipeleft swiperight", function(e) {
+	var page= $.mobile.pageContainer.pagecontainer("getActivePage")
+[0];
+
+	var dir = e.type;
+	if(page.id == "first" && dir == "swipeleft") {
+		$.mobile.changePage("#second")
+	}
+	
+	if (page.id == "second" && dir == "swiperight") {
+		$.mobile.changePage("#first");
+	}
+});
+</script>
+
+
+</body>
+
+</html>
